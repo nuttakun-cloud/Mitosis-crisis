@@ -1,0 +1,18 @@
+# netlify.toml - ใบสั่งการสำหรับ Vite React App บน Netlify
+
+[build]
+  # คำสั่งในการประกอบร่างแอปให้พร้อมใช้งาน
+  command = "npm run build"
+  # โฟลเดอร์ที่แอปจะไปรวมตัวกันหลังประกอบเสร็จ (สำหรับ Vite คือ dist)
+  publish = "dist"
+
+[build.environment]
+  # ตั้งค่าเวอร์ชันของ Node.js ให้ทันสมัยที่สุด
+  NODE_VERSION = "20"
+
+[[redirects]]
+  # ระบบจัดการทางเดินรถเพื่อให้แอปหน้าเดียว (Single Page Application) ทำงานไม่สะดุด
+  # เมื่อมีการรีเฟรชหน้าเว็บ Netlify จะส่งกลับไปที่ index.html เสมอ
+  from = "/*"
+  to = "/index.html"
+  status = 200
